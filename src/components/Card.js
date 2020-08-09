@@ -15,7 +15,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
 
+import history from "../history";
 import Slider from "./slider-dots";
 import {
   Info,
@@ -93,85 +95,56 @@ export default function RecipeReviewCard(props) {
   };
 
   return (
-    <Card
-      className={classes.root}
-      onMouseOver={() => setShow(true)}
-      onMouseOut={() => setShow(false)}
+    <div
+      class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white "
+      ref={props.ref}
+      style={{ height: "450px" }}
     >
-      {show == true ? (
-        <CardActions className={classes.quick}>
-          <Link
-            to={`/${props.recipe.id}`}
-            className="bg-transparent rounded border border-white text-white p-4 m-2 w-40"
-          >
-            VIEW MORE
-          </Link>
-          <button className="bg-transparent rounded border border-white text-white font-metro p-4 w-40">
-            QUICK VIEW
-          </button>
-        </CardActions>
+      <img
+        class="w-full h-64"
+        style={{
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.7) 2%, rgba(255,255,255,0) 95%), url(${props.recipe.image})`,
+        }}
+        onClick={() => history.push("/2")}
+      />
+
+      {props.keyId % 2 == 0 ? (
+        <div class="px-6 py-4 bg-black h-full">
+          <div class="font-bold text-2xl text-white">{props.recipe.name}</div>
+          <div class="font-bold text-2xl mb-2 text-white text-right">
+            <img
+              src="/icons/Icon feather-heart-color.png"
+              className="ml-auto"
+            />
+          </div>
+          <div class="bg-black flex flex-row">
+            <img src="/icons/clock-48.png" className="w-6 h-6" />
+            <h1 class="rounded-full px-3 py-1 text-sm font-semibold text-white mr-2">
+              23 Mins
+            </h1>
+          </div>
+          <p class="text-white text-xs h-full">{props.recipe.description}</p>
+        </div>
       ) : (
-        <div className="h-full">
-          <CardMedia
-            className={classes.media}
-            image="/images/Img1.jpg"
-            title="Paella dish"
-          />
-          <CardContent className={classes.content}>
-            <div className="text-white flex flex-row justify-between h-full">
-              <Typography variant="h5" color="white" component="h1">
-                {props.recipe.name}
-              </Typography>
-              <IconButton color="inherit" aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-            </div>
-
-            <div className="flex flex-row h-full">
-              <IconButton color="inherit" aria-label="add to favorites">
-                <img src="/icons/Icon feather-clock.png" className="bg-white" />
-              </IconButton>
-              <Typography variant="subtitle1">23 mins</Typography>
-            </div>
-
-            <Typography variant="body2" color="white" component="p">
-              {props.recipe.description}
-            </Typography>
-          </CardContent>
+        <div class="px-6 py-4 bg-white h-full">
+          <div class="font-bold text-2xl text-black">{props.recipe.name}</div>
+          <div class="font-bold text-2xl mb-2 text-black text-right">
+            <img
+              src="/icons/Icon feather-heart-color.png"
+              className="ml-auto"
+            />
+          </div>
+          <div class="bg-white flex flex-row">
+            <img src="/icons/clock-48-white.png" className="w-6 h-6" />
+            <h1 class="rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
+              23 Mins
+            </h1>
+          </div>
+          <p class="text-black text-xs h-full">{props.recipe.description}</p>
         </div>
       )}
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and
-            set aside for 10 minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-            over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-            stirring occasionally until lightly browned, 6 to 8 minutes.
-            Transfer shrimp to a large plate and set aside, leaving chicken and
-            chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes,
-            onion, salt and pepper, and cook, stirring often until thickened and
-            fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2
-            cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is
-            absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved
-            shrimp and mussels, tucking them down into the rice, and cook again
-            without stirring, until mussels have opened and rice is just tender,
-            5 to 7 minutes more. (Discard any mussels that don’t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+    </div>
   );
 }

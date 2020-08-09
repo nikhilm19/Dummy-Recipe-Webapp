@@ -10,7 +10,7 @@ class RecipeCard extends React.Component {
     };
   }
   componentDidMount() {
-    //this.imageRef.current.addEventListener("load", this.setSpans);
+    this.imageRef.current.addEventListener("load", this.setSpans);
   }
 
   setSpans = () => {
@@ -28,8 +28,9 @@ class RecipeCard extends React.Component {
       <div
         className=""
         style={{ gridRowEnd: `span ${this.state.spans}`, overflow: "hidden" }}
+        ref={this.imageRef}
       >
-        <MuiCard recipe={this.props.recipe} />
+        <MuiCard recipe={this.props.recipe} keyId={this.props.keyId} />
       </div>
     );
   }

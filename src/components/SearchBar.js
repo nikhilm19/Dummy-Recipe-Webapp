@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      term: "covid",
+      term: " ",
     };
   }
 
@@ -14,16 +14,14 @@ class SearchBar extends React.Component {
     this.props.onSubmit(this.state.term);
   };
 
-  componentDidMount() {
-    this.props.onSubmit("covid");
-  }
+  componentDidMount() {}
 
   render() {
     return (
       <div className="searchbar-container w-1/2 xl:wl-1/2 bg-gray-200">
         <form
           className="flex-grow  bg-transparent rounded px-2 py-2 "
-          onSubmit={this.onFormSubmit}
+          onChange={this.onFormSubmit}
         >
           <div className="relative">
             <span className="h-auto">

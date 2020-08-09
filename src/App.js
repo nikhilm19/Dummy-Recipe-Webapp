@@ -1,7 +1,8 @@
 import React from "react";
 import SearchBar from "./components/SearchBar";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 import recipe from "./api/recipe";
+import history from "./history";
 
 import axios from "axios";
 import RecipeList from "./components/RecipeList";
@@ -12,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       recipes: [],
+      results: [],
     };
   }
 
@@ -20,21 +22,25 @@ class App extends React.Component {
 
     console.log(response.data);
 
-    this.setState({ recipes: response.data });
+    this.setState({ recipes: response.data, results: response.data });
   }
   onSubmit = async (term) => {
-    const response = await recipe.get("");
+    console.log(term);
+    if (term === "") {
+      this.setState({ results: this.state.recipes });
+    }
+    let results = this.state.recipes.filter((recipe) => {
+      return recipe.name.startsWith(term);
+    });
 
-    console.log(response.data);
-
-    this.setState({ recipes: response.data });
+    this.setState({ results });
     console.log(term);
   };
 
   render() {
     return (
-      <div className="h-screen overflow-scroll App flex flex-col top-0 inset-x-0 h-16 items-center bg-gray-200">
-        <Router>
+      <div className="h-screen overflow-scroll App flex flex-col top-0 inset-x-0 h-16 items-center bg-gray-200 py-16">
+        <Router history={history}>
           <div className="pl-8 flex bg-gray-200 border-b border-gray-200 fixed top-0 inset-x-0 z-20 h-16 items-center ">
             <header className="sticky w-1/4 mr-8">
               <a
@@ -75,13 +81,20 @@ class App extends React.Component {
               </div>
             </div>
           </div>
+         
           <Route
             path="/"
             exact
-            component={() => <RecipeList recipes={this.state.recipes} />}
+            component={() => <RecipeList recipes={this.state.results} />}
           ></Route>
 
-          <Route path="/:id" exact component={() => <RecipeDetail />}></Route>
+          <Route
+            path="/:id"
+            exact
+            render={(props) => (
+              <RecipeDetail recipes={this.state.recipes} {...props} />
+            )}
+          ></Route>
         </Router>
       </div>
     );
