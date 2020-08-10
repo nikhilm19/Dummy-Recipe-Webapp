@@ -4,7 +4,7 @@
 
 Challenge : Create a recipe web app showing details about food dishes
 
-[![UI](https://img.shields.io/website?down_color=red&down_message=Check+here&label=Website&style=for-the-badge&up_color=green&up_message=up&url=https%3A%2F%2Fsecure-refuge-83521.herokuapp.com%2F)](https://secure-refuge-83521.herokuapp.com/)
+[![UI](https://img.shields.io/website?down_color=red&down_message=Check+here&label=Website&style=for-the-badge&up_color=green&up_message=up&url=https%3A%2F%2Fwarm-lowlands-25211.herokuapp.com%2F)](https://warm-lowlands-25211.herokuapp.com/)
 
 The webapp is deployed on Heroku .
 

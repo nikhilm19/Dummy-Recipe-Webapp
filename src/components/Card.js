@@ -100,18 +100,21 @@ export default function RecipeReviewCard(props) {
       ref={props.ref}
       style={{ height: "450px" }}
     >
-      <img
-        class="w-full h-64"
+      <div
+        class="w-full h-64 "
         style={{
           backgroundPosition: "center",
           backgroundSize: "cover",
-          backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.7) 2%, rgba(255,255,255,0) 95%), url(${props.recipe.image})`,
+          backgroundImage:
+            props.keyId % 2 == 0
+              ? `linear-gradient(0deg, rgba(0,0,0,0.7) 2%, rgba(255,255,255,0) 95%), url(${props.recipe.image})`
+              : `linear-gradient(0deg, rgb(255 255 255 / 32%) 2%, rgba(255,255,255,0) 95%), url(${props.recipe.image})`,
         }}
         onClick={() => history.push(`${props.keyId}`)}
       />
 
       {props.keyId % 2 == 0 ? (
-        <div class="px-6 py-4 bg-black h-full">
+        <div class="px-6 py-4 bg-black h-full border-none">
           <div class="font-bold text-2xl text-white">{props.recipe.name}</div>
           <div class="font-bold text-2xl mb-2 text-white text-right">
             <img
