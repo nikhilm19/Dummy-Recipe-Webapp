@@ -1,5 +1,5 @@
 import React from "react";
-
+import SearchIcon from "../assets/icons/Icon feather-search.png";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -39,8 +39,8 @@ class SearchBar extends React.Component {
             </span>
             <div className="absolute flex inset-y-0 ml-2 mr-8 pointer-events-none absolute inset-y-0 flex items-center">
               <img
-                src="/icons/Icon feather-search.png"
-                className="bg-white rounded-full p-2 mr-4"
+                src={SearchIcon}
+                className="bg-white rounded-full p-2 mr-4 shadow-md"
               ></img>
             </div>
           </div>

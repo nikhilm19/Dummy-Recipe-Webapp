@@ -4,6 +4,12 @@
 
 @tailwind utilities;
 
+#root {
+  background-image: url("/images/Illustration2.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
 .each-slide > div {
   display: flex;
   align-items: center;

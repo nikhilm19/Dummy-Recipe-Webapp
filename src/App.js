@@ -9,6 +9,12 @@ import recipes from "./data/recipes.json";
 import RecipeList from "./components/RecipeList";
 import RecipeDetail from "./components/RecipeDetails";
 
+import Illustration1 from "./assets/images/Illustration1.png";
+
+import Illustration2 from "./assets/images/Illustration2.png";
+import Illustration3 from "./assets/images/Illustration3.png";
+import Illustration4 from "./assets/images/Illustration4.png";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -42,40 +48,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="h-screen overflow-scroll App flex flex-col top-0 inset-x-0 h-16 items-center bg-gray-200 py-16">
+      <div
+        style={{
+          backgroundImage: `url(${Illustration1}),url(${Illustration2}) ,url(${Illustration3}), url(${Illustration4})`,
+          backgroundPosition: "right bottom, left bottom, right top, left top",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "200px, 130px, 130px, 130px",
+        }}
+        className="h-screen overflow-scroll App flex flex-col top-0 inset-x-0 h-16 items-center bg-gray-200 py-16"
+      >
         <Router history={history}>
           <div className="pl-8 flex bg-gray-200 border-b border-gray-200 fixed top-0 inset-x-0 z-20 h-16 items-center ">
-            <header className="sticky w-1/4 mr-8">
-              <a
-                href="/"
-                class="pt-2 w-full justify-between block lg:mr-4 flex flex-row w-full justify-center items-center "
-              >
-                <svg
-                  class="w-10 h-10 block md:hidden"
-                  viewBox="0 0 64 64"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Tailwind CSS</title>
-                  <path
-                    d="M13.5 11.1C15.3 3.9 19.8.3 27 .3c10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 27.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
-                    transform="translate(5 16)"
-                    fill="url(#logoMarkGradient)"
-                    fill-rule="evenodd"
-                  ></path>
-                  <defs>
-                    <linearGradient
-                      x1="0%"
-                      y1="0%"
-                      y2="100%"
-                      id="logoMarkGradient"
-                    >
-                      <stop stop-color="#2298BD"></stop>
-                      <stop offset="1" stop-color="#0ED7B5"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </a>
-            </header>
+            <header className="sticky w-1/4 mr-8"></header>
 
             <SearchBar onSubmit={this.onSubmit} />
             <div className="w-1/2 h-full flex justify-center">
