@@ -5,6 +5,7 @@ import recipe from "./api/recipe";
 import history from "./history";
 
 import axios from "axios";
+import recipes from "./data/recipes.json";
 import RecipeList from "./components/RecipeList";
 import RecipeDetail from "./components/RecipeDetails";
 
@@ -18,11 +19,13 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await recipe.get("");
+    //const response = await recipe.get("");
 
-    console.log(response.data);
+    //console.log(response.data);
 
-    this.setState({ recipes: response.data, results: response.data });
+    const response = recipes;
+
+    this.setState({ recipes: response, results: response });
   }
   onSubmit = async (term) => {
     console.log(term);
@@ -81,7 +84,7 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-         
+
           <Route
             path="/"
             exact

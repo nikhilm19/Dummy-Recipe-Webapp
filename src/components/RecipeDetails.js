@@ -1,6 +1,7 @@
 import React from "react";
 
 import recipeApi from "../api/recipe";
+import recipes from "../data/recipes.json";
 
 class Details extends React.Component {
   constructor(props) {
@@ -10,13 +11,14 @@ class Details extends React.Component {
   }
   componentDidMount = async () => {
     //const data = await recipeApi.get("");
-    const response = await recipeApi.get("");
+    // const response = await recipeApi.get("");
 
-    console.log(response.data);
+    const response = recipes;
+
     console.log(this.props.match.params.id);
 
     this.setState({
-      recipe: response.data[2],
+      recipe: response[this.props.match.params.id],
     });
   };
 

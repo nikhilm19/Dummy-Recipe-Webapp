@@ -18019,6 +18019,21 @@ video {
           animation: bounce 1s infinite;
 }
 
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 100px;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

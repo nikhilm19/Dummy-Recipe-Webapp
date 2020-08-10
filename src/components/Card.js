@@ -107,7 +107,7 @@ export default function RecipeReviewCard(props) {
           backgroundSize: "cover",
           backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.7) 2%, rgba(255,255,255,0) 95%), url(${props.recipe.image})`,
         }}
-        onClick={() => history.push("/2")}
+        onClick={() => history.push(`${props.keyId}`)}
       />
 
       {props.keyId % 2 == 0 ? (
