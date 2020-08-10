@@ -54,7 +54,7 @@ export default function RecipeReviewCard(props) {
         </div>
       )}
 
-      <div className="z-10 h-full">
+      <div className="z-10 h-full w-full rounded">
         <div
           class="w-full h-64 "
           style={{
@@ -66,7 +66,11 @@ export default function RecipeReviewCard(props) {
                 : `linear-gradient(0deg, rgb(255 255 255 / 32%) 2%, rgba(255,255,255,0) 95%), url('${props.recipe.image}')`,
           }}
           onClick={() => history.push(`${props.keyId}`)}
-        />
+        >
+          <h1 className="bg-gray-800 w-32 text-white rounded px-2 py-1 text-center ml-auto">
+            Pizza
+          </h1>
+        </div>
 
         {props.keyId % 2 == 0 ? (
           <div class="px-6 py-4 bg-black h-full border-none hover:bg-white h-full">

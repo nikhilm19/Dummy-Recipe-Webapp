@@ -26,7 +26,7 @@ class RecipeCard extends React.Component {
     const { image, name, label } = this.props.recipe;
     return (
       <div
-        className=""
+        className="rounded-md"
         style={{ gridRowEnd: `span ${this.state.spans}`, overflow: "hidden" }}
         ref={this.imageRef}
       >

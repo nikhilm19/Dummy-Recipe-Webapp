@@ -22,6 +22,8 @@ This webapp is built using React.js, Material UI and TailwindCss
 
 ## SnapShots
 
-![Home](demos/home2.png?raw=true "Title")
+![Home](demos/home.png?raw=true "Title")
 
-![Details](demos/details2.png?raw=true "Details")
+![View](demos/view.png?raw=true "View")
+
+![Details](demos/details.png?raw=true "Details")
