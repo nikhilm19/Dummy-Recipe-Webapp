@@ -1,7 +1,6 @@
 {
   "name": "coda-global-task",
   "version": "0.1.0",
-  "homepage": "http://nikhilm19.github.io/coda-global-task",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
