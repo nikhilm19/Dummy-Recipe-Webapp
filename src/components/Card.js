@@ -20,7 +20,7 @@ export default function RecipeReviewCard(props) {
 
   return (
     <div
-      class="max-w-sm rounded-lg overflow-hidden shadow-lg  transition duration-500 ease-in-out relative"
+      class="max-w-sm rounded-lg flex shadow-lg  hover:opacity-75 transition duration-500 ease-in-out relative "
       ref={props.ref}
       style={{ height: "450px" }}
       onMouseEnter={() => setShow(true)}
@@ -28,17 +28,28 @@ export default function RecipeReviewCard(props) {
     >
       {show && (
         <div
-          className="flex flex-col justify-center items-center bg-red-100 opacity-25"
+          className="flex flex-col justify-center items-center "
           style={{
             height: "450px",
+            width: "100%",
             zIndex: "20",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            backgroundColor: "hsla(123, 61%, 13%, 0.82)",
           }}
         >
           <Link
             to={`/${props.recipe.id}`}
-            className="border-white bg-transparent "
+            className="border-white bg-transparent text-white border-white border p-2 w-32 text-center mb-2 rounded"
           >
             View More
+          </Link>
+          <Link
+            to={`/${props.recipe.id}`}
+            className="border-white bg-transparent text-white border-white border p-2 w-32 text-center rounded "
+          >
+            All Details
           </Link>
         </div>
       )}
