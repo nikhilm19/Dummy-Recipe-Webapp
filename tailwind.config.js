@@ -1,12 +1,13 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {},
-  },
-  variants: {
-    fontFamily: {
-      metro: ["MetropolisRegular"],
+    extend: {
+      fontFamily: {
+        metro: ["MetropolisRegular"],
+        nunito: ["Nunito"],
+      },
     },
   },
+  variants: {},
   plugins: [],
 };

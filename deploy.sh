@@ -1,3 +1,4 @@
 git add .
-git commit -m "Deploying to heroku 🚀"
+git commit -m "$*"
+git push origin master
 git push heroku master

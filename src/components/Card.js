@@ -1,14 +1,6 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-
-import { red } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
 import history from "../history";
-import Slider from "./slider-dots";
-
-import ClockIcon from "../assets/icons/clock-48.png";
-import ClockIconWhite from "../assets/icons/clock-48-white.png";
-import HeartIcon from "../assets/icons/Icon feather-heart-color.png";
 
 export default function RecipeReviewCard(props) {
   const [show, setShow] = React.useState(false);
@@ -20,17 +12,17 @@ export default function RecipeReviewCard(props) {
 
   return (
     <div
-      class="max-w-sm rounded-lg flex shadow-lg  hover:opacity-75 transition duration-500 ease-in-out relative "
+      class={`  flex h-full card relative ${show ? "" : ""}`}
       ref={props.ref}
-      style={{ height: "450px" }}
+      // style={{ height: "450px" }}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
       {show && (
         <div
-          className="flex flex-col justify-center items-center "
+          className="flex flex-col justify-center items-center h-48 "
           style={{
-            height: "450px",
+            // height: "450px",
             width: "100%",
             zIndex: "20",
             position: "absolute",
@@ -41,22 +33,22 @@ export default function RecipeReviewCard(props) {
         >
           <Link
             to={`/${props.recipe.id}`}
-            className="border-white bg-transparent text-white border-white border p-2 w-32 text-center mb-2 rounded"
+            className=" bg-transparent text-white border-gray-500 border p-2 w-32 text-center mb-2 rounded hover:bg-red-400 transition ease-in-out duration-500"
           >
             View More
           </Link>
           <Link
             to={`/${props.recipe.id}`}
-            className="border-white bg-transparent text-white border-white border p-2 w-32 text-center rounded "
+            className=" bg-transparent text-white border-gray-500 border p-2 w-32 text-center mb-2 rounded hover:bg-indigo-600 transition ease-in-out duration-500"
           >
             All Details
           </Link>
         </div>
       )}
 
-      <div className="z-10 h-full w-full rounded">
+      <div className="z-10 h-full w-full rounded-lg hover:rounded-2xl">
         <div
-          class="w-full h-64 "
+          class="w-full h-48 "
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
@@ -67,40 +59,89 @@ export default function RecipeReviewCard(props) {
           }}
           onClick={() => history.push(`${props.keyId}`)}
         >
-          <h1 className="bg-gray-800 w-32 text-white rounded px-2 py-1 text-center ml-auto">
-            Pizza
-          </h1>
+          {props.keyId % 2 == 0 ? (
+            <h1 className="bg-gray-200 w-16 text-black  px-2 py-1 text-center ml-auto label font-nunito text-sm">
+              {/* 4 <i class="fas fa-star stars"></i> */}
+
+              {props.recipe.label}
+            </h1>
+          ) : (
+            <h1 className="bg-gray-700 w-16 text-white px-2 py-1 text-center ml-auto label font-nunito text-sm">
+              {/* 4 <i class="fas fa-star stars"></i> */}
+              {props.recipe.label === "" ? "New" : props.recipe.label}
+            </h1>
+          )}
         </div>
 
-        {props.keyId % 2 == 0 ? (
-          <div class="px-6 py-4 bg-black h-full border-none hover:bg-white h-full">
-            <div class="font-bold text-2xl text-white">{props.recipe.name}</div>
-            <div class="font-bold text-2xl mb-2 text-white text-right">
-              <img src={HeartIcon} className="ml-auto" />
+        <div className="border-none flex flex-grow flex-col ">
+          {props.keyId % 2 == 0 ? (
+            <div class="px-6 py-4 bg-gray-800 border-none flex flex-grow flex-col w-full ">
+              <div class="font-black font-nunito text-2xl text-white">
+                {props.recipe.name}
+              </div>
+
+              <div class="flex flex-row justify-between">
+                <div className="flex flex-row text-white">
+                  {/* <i class="far fa-clock w-6 h-6 flex my-auto justify-center items-center"></i> */}
+                  <h1 class="rounded-full  py-1 text-sm font-semibold text-white mr-2">
+                    Rs {props.recipe.price}
+                  </h1>
+                </div>
+                <div>
+                  <i class="fas fa-heart ml-auto text-red-400"></i>
+                </div>
+              </div>
+              <p class="text-white text-xs mt-2">{props.recipe.description}</p>
             </div>
-            <div class="bg-black flex flex-row">
-              <img src={ClockIcon} className="w-6 h-6" />
-              <h1 class="rounded-full px-3 py-1 text-sm font-semibold text-white mr-2">
-                23 Mins
-              </h1>
+          ) : (
+            <div class=" px-6 py-4 bg-white  flex flex-grow flex-col ">
+              <div class="font-black font-nunito text-2xl text-black">
+                {props.recipe.name}
+              </div>
+
+              <div class="bg-white flex flex-row justify-between">
+                <div className="flex flex-row">
+                  {/* <i class="far fa-clock w-6 h-6 flex my-auto justify-center items-center"></i> */}
+                  <h1 class="rounded-full  py-1 text-sm font-semibold text-black mr-2">
+                    Rs {props.recipe.price}
+                  </h1>
+                </div>
+                <div>
+                  <i class="fas fa-heart ml-auto text-red-400"></i>
+                </div>
+              </div>
+              <p class="text-black text-xs h-full mt-2">
+                {props.recipe.description}
+              </p>
             </div>
-            <p class="text-white text-xs h-full">{props.recipe.description}</p>
+          )}
+
+          <div className="flex flex-row bg-green-500 justify-center h-full px-4 py-4">
+            <buton
+              className="text-white"
+              onClick={() =>
+                history.push({
+                  pathname: "/checkout",
+                  state: { recipe: props.recipe },
+                })
+              }
+            >
+              Eat fresh
+            </buton>
           </div>
-        ) : (
-          <div class="px-6 py-4 bg-white h-full">
-            <div class="font-bold text-2xl text-black">{props.recipe.name}</div>
-            <div class="font-bold text-2xl mb-2 text-black text-right">
-              <img src={HeartIcon} className="ml-auto" />
-            </div>
-            <div class="bg-white flex flex-row">
-              <img src={ClockIconWhite} className="w-6 h-6" />
-              <h1 class="rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
-                23 Mins
-              </h1>
-            </div>
-            <p class="text-black text-xs h-full">{props.recipe.description}</p>
+        </div>
+
+        {/* <div className="text-black flex flex-row justify-center">
+          <div className="w-8">
+            <button className="w-full">-</button>
           </div>
-        )}
+          <div className="">
+            <input type="number"></input>
+          </div>
+          <div className="w-8">
+            <button className="w-full">+</button>
+          </div>
+        </div> */}
       </div>
     </div>
   );

@@ -14,6 +14,8 @@ import Illustration1 from "./assets/images/Illustration1.png";
 import Illustration2 from "./assets/images/Illustration2.png";
 import Illustration3 from "./assets/images/Illustration3.png";
 import Illustration4 from "./assets/images/Illustration4.png";
+import Checkout from "./components/Checkout";
+import Otp from "./components/Otp";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,11 +27,11 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    //const response = await recipe.get("");
+    const response = (await recipe.get("")).data;
 
-    //console.log(response.data);
+    console.log(response.data);
 
-    const response = recipes;
+    // const response = recipes;
 
     this.setState({ recipes: response, results: response });
   }
@@ -58,13 +60,15 @@ class App extends React.Component {
         className="h-screen overflow-scroll App flex flex-col top-0 inset-x-0 h-16 items-center bg-gray-200 py-16"
       >
         <Router history={history}>
-          <div className="pl-8 flex bg-gray-200 border-b border-gray-200 fixed top-0 inset-x-0 z-20 h-16 items-center ">
-            <header className="sticky w-1/4 mr-8"></header>
+          <div className="sm:pl-8 flex bg-gray-200 border-b border-gray-200 fixed top-0 inset-x-0 z-20 h-16 items-center justify-center">
+            {/* <header className="sticky w-1/4 mr-8"></header> */}
 
             <SearchBar onSubmit={this.onSubmit} />
-            <div className="w-1/2 h-full flex justify-center">
-              <div className="flex flex-row w-1/2 justify-between px-2 py-2 items-center">
-                <a href="https://nikhilm19.tech/">About Us</a>
+            <div className="sm:w-1/2 h-full flex justify-center">
+              <div className="flex flex-row sm:w-1/2 justify-center px-2 py-2 items-center">
+                <a href="https://nikhilm19.tech/" className="font-nunito">
+                  About Us
+                </a>
               </div>
             </div>
           </div>
@@ -73,7 +77,7 @@ class App extends React.Component {
             path="/"
             exact
             component={() => <RecipeList recipes={this.state.results} />}
-          ></Route>
+          />
 
           <Route
             path="/:id"
@@ -81,7 +85,14 @@ class App extends React.Component {
             render={(props) => (
               <RecipeDetail recipes={this.state.recipes} {...props} />
             )}
-          ></Route>
+          />
+
+          <Route
+            path="/checkout"
+            exact
+            render={(props) => <Checkout {...props} />}
+          />
+          <Route path="/verify" exact render={(props) => <Otp {...props} />} />
         </Router>
       </div>
     );

@@ -6060,6 +6060,14 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-metro {
+  font-family: MetropolisRegular;
+}
+
+.font-nunito {
+  font-family: Nunito;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -18019,6 +18027,12 @@ video {
           animation: bounce 1s infinite;
 }
 
+#root {
+  background-image: url("/images/Illustration2.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
 .each-slide > div {
   display: flex;
   align-items: center;
@@ -23491,6 +23505,26 @@ video {
 
   .sm\:clear-none {
     clear: none;
+  }
+
+  .sm\:font-sans {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .sm\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .sm\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-metro {
+    font-family: MetropolisRegular;
+  }
+
+  .sm\:font-nunito {
+    font-family: Nunito;
   }
 
   .sm\:font-hairline {
@@ -40820,6 +40854,26 @@ video {
     clear: none;
   }
 
+  .md\:font-sans {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .md\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .md\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-metro {
+    font-family: MetropolisRegular;
+  }
+
+  .md\:font-nunito {
+    font-family: Nunito;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -58147,6 +58201,26 @@ video {
     clear: none;
   }
 
+  .lg\:font-sans {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .lg\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .lg\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .lg\:font-metro {
+    font-family: MetropolisRegular;
+  }
+
+  .lg\:font-nunito {
+    font-family: Nunito;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -75472,6 +75546,26 @@ video {
 
   .xl\:clear-none {
     clear: none;
+  }
+
+  .xl\:font-sans {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .xl\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .xl\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-metro {
+    font-family: MetropolisRegular;
+  }
+
+  .xl\:font-nunito {
+    font-family: Nunito;
   }
 
   .xl\:font-hairline {
