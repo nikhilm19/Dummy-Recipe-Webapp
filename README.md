@@ -4,13 +4,13 @@
 
 Challenge : Create a recipe web app showing details about food dishes with dummy payment gateway and OTP functionality
 
-[![UI](https://img.shields.io/website?down_color=red&down_message=Check+here&label=Website&style=for-the-badge&up_color=green&up_message=up&url=https%3A%2F%2Fwarm-lowlands-25211.herokuapp.com%2F)](https://warm-lowlands-25211.herokuapp.com/)
+[![UI](https://img.shields.io/website?down_color=red&down_message=Check+here&label=Website&style=for-the-badge&up_color=green&up_message=Click+Here&url=https%3A%2F%2Frelaxed-allen-83e504.netlify.app%2F)](https://relaxed-allen-83e504.netlify.app)
 
 The webapp is deployed on Netlify .
 
 ## Installation
 
-`git clone https://github.com/nikhilm19/coda-global-task.git`
+`git clone https://github.com/nikhilm19/Dummy-Recipe-Webapp.git`
 
 `npm i && npm start`
 
@@ -27,7 +27,6 @@ This webapp is built using React.js, TailwindCss
 ![View](demos/card.png?raw=true "Card")
 
 ![Details](demos/details.png?raw=true "Details")
-
 
 ![Cart](demos/cart.png?raw=true "cart")
 

@@ -27,16 +27,18 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = (await recipe.get("")).data;
-
-    console.log(response.data);
+    const response = await recipe.get("");
+    // console.log(response);
+    // console.log(response.data);
+    if (response.status !== 200) {
+      this.setState({ recipes: recipes, results: recipes });
+    }
+    else this.setState({ recipes: response.data, results: response.data });
 
     // const response = recipes;
-
-    this.setState({ recipes: response, results: response });
   }
   onSubmit = async (term) => {
-    console.log(term);
+    // console.log(term);
     if (term === "") {
       this.setState({ results: this.state.recipes });
     }
@@ -45,7 +47,7 @@ class App extends React.Component {
     });
 
     this.setState({ results });
-    console.log(term);
+    // console.log(term);
   };
 
   render() {
