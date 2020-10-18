@@ -11,7 +11,7 @@ The webapp is deployed on Netlify .
 ## Installation
 
 `git clone https://github.com/nikhilm19/Dummy-Recipe-Webapp.git`
-
+`npx tailwindcss init --full`
 `npm i && npm start`
 
 You should see the app running on `localhost:3000`

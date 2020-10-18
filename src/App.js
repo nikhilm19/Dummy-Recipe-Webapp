@@ -27,14 +27,16 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await recipe.get("");
-    // console.log(response);
-    // console.log(response.data);
-    if (response.status !== 200) {
+    try {
+      const response = await recipe.get("");
+      // console.log(response);
+      // console.log(response.data);
+      if (response.status !== 200) {
+        this.setState({ recipes: recipes, results: recipes });
+      } else this.setState({ recipes: response.data, results: response.data });
+    } catch (e) {
       this.setState({ recipes: recipes, results: recipes });
     }
-    else this.setState({ recipes: response.data, results: response.data });
-
     // const response = recipes;
   }
   onSubmit = async (term) => {
